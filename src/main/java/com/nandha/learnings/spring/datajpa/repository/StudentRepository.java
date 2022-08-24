@@ -39,7 +39,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     String getStudentLastNameByEmailNativeNamedParam(@Param("email") String email);
 
     @Transactional //usually this annotation should be placed in service layer only, but for JPA's sake we are using it here
-    @Modifying
+    @Modifying //use it when you need to modify the records in the database(update/delete)
     @Query(value = "update student_tbl s set s.first_name= ?1 where email = ?2",
             nativeQuery = true)
     void updateStudentFirstNameByEmail(String first_name,String email);
