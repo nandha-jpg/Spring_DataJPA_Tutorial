@@ -75,4 +75,16 @@ class StudentRepositoryTest {
         List<Student> students = studentRepository.findStudentByFirstName("Siva");
         System.out.println("students = " + students);
     }
+
+    @Test
+    public void findStudentByLastName() {
+        List<Student> students = studentRepository.findStudentByLastName("Kumar");
+        System.out.println("students = " + students);
+    }
+
+    @Test
+    public void findStudentByFirstNameContainingSomeChars() {
+        List<Student> students = studentRepository.findStudentByFirstNameContaining("an");
+        System.out.println("students = " + students);
+    }
 }
