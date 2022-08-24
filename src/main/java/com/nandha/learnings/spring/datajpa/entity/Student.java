@@ -18,23 +18,29 @@ import javax.persistence.*;
 public class Student {
     @Id
     @Column(name = "student_id")
-    @SequenceGenerator(
-            name = "student_sequence",
+    @SequenceGenerator(name = "student_sequence",
             sequenceName = "student_sequence",
             allocationSize = 1)
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "student_sequence")
     private Long id;
+
     @Column(name = "first_name")
     private String firstName;
+
     @Column(name = "last_name")
     private String lastName;
+
     @Column(name = "guardian_name")
     private String guardianName;
-    @Column(name = "email")
+
+    @Column(name = "email",
+            nullable = false,
+            unique = true)
     private String guardianEmail;
-    @Column(name = "guardian_mobile")
+
+    @Column(name = "guardian_mobile",
+            unique = true)
     private String guardianMobile;
 
 }
