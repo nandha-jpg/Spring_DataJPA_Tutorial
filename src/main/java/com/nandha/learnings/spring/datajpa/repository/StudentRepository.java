@@ -1,6 +1,5 @@
 package com.nandha.learnings.spring.datajpa.repository;
 
-import com.nandha.learnings.spring.datajpa.entity.Guardian;
 import com.nandha.learnings.spring.datajpa.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -26,4 +25,9 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     @Query(value = "select * from student_tbl where first_name = ?1",
             nativeQuery = true)
     Student getStudentByFirstNameNativeQuery(String firstName);
+
+    @Query(value = "select s.last_name from student_tbl s where s.email = ?1",
+            nativeQuery = true)
+    String getStudentLastNameByEmailNative(String email);
+
 }
