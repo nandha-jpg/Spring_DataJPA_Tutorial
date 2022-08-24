@@ -34,30 +34,32 @@ class StudentRepositoryTest {
 
     @Test
     public void saveStudentWithGuardian(){
-        Guardian guardian = Guardian.builder()
+        /*Guardian guardian = Guardian.builder()
                 .name("Muthusamy")
                 .mobileNumber("979797979")
                 .email("muthusamy@mail.com")
-                .build();
-        /*guardian.setName("Grusamy");
-        guardian.setEmail("gurusamy@mail.com");
-        guardian.setMobileNumber("9898989898");*/
+                .build();*/
+
+        Guardian guardian = new Guardian();
+        guardian.setName("Subramanian");
+        guardian.setEmail("s.mani@mail.com");
+        guardian.setMobileNumber("998989898");
 
 
-        /*Student student = new Student();
-        student.setFirstName("Eswara");
-        student.setLastName("Moorthi");
-        student.setEmailAddress("eswara.m@mail.com");
-        student.setGuardian(guardian);*/
+        Student student = new Student();
+        student.setFirstName("Siva");
+        student.setLastName("Kumar");
+        student.setEmailAddress("siva.s@mail.com");
+        student.setGuardian(guardian);
 
-        Student students =Student.builder()
+        /*Student students =Student.builder()
                 .firstName("Eswara")
                 .lastName("Moorthi")
                 .emailAddress("eswara.m@mail.com")
                 .guardian(guardian)
-                .build();
+                .build();*/
 
-        studentRepository.save(students);
+        studentRepository.save(student);
     }
 
     @Test
@@ -65,5 +67,12 @@ class StudentRepositoryTest {
         List<Student> students = studentRepository.findAll();
         System.out.println("students = " + students);
         assertTrue(students.size() > 0);
+    }
+
+
+    @Test
+    public void findStudentByFirstName() {
+        List<Student> students = studentRepository.findStudentByFirstName("Siva");
+        System.out.println("students = " + students);
     }
 }
