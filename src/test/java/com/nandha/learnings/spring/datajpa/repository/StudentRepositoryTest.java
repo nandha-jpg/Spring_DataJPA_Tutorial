@@ -87,4 +87,11 @@ class StudentRepositoryTest {
         List<Student> students = studentRepository.findStudentByFirstNameContaining("an");
         System.out.println("students = " + students);
     }
+    
+    @Test
+    public void getStudentByFirstName(){
+        Student student = studentRepository.getStudentByFirstName("Nandha");
+        assertEquals("Nandha", student.getFirstName());
+        System.out.println("student = " + student);
+    }
 }
