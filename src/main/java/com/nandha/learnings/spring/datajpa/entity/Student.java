@@ -11,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "student_tbl",
         uniqueConstraints = @UniqueConstraint(
                 name = "uc_email",
@@ -31,16 +32,12 @@ public class Student {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "guardian_name")
-    private String guardianName;
-
     @Column(name = "email",
             nullable = false,
             unique = true)
-    private String guardianEmail;
+    private String emailAddress;
 
-    @Column(name = "guardian_mobile",
-            unique = true)
-    private String guardianMobile;
+    @Embedded
+    private Guardian guardian;
 
 }
