@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@Table(name = "student_tbl",
+@Table(name = "student_table",
         uniqueConstraints = @UniqueConstraint(
                 name = "uc_email",
                 columnNames = {"email"}))
