@@ -77,19 +77,19 @@ class StudentRepositoryTest {
     }
 
     @Test
-    public void findStudentByLastNameTest() {
+    public void findStudentByLastName() {
         List<Student> students = studentRepository.findStudentByLastName("Kumar");
         System.out.println("students = " + students);
     }
 
     @Test
-    public void findStudentByFirstNameContainingSomeCharsTest() {
+    public void findStudentByFirstNameContainingSomeChars() {
         List<Student> students = studentRepository.findStudentByFirstNameContaining("an");
         System.out.println("students = " + students);
     }
     
     @Test
-    public void getStudentByFirstNameTest(){
+    public void getStudentByFirstName(){
         Student student = studentRepository.getStudentByFirstName("Nandha");
         assertEquals("Nandha", student.getFirstName());
         System.out.println("student = " + student);
@@ -97,35 +97,23 @@ class StudentRepositoryTest {
 
 
     @Test
-    public void getStudentLastNameByGuardianTest(){
+    public void getStudentLastNameByGuardian(){
         String student = studentRepository.getStudentLastNameByEmail("siva.s@mail.com");
         assertEquals("Kumar", student);
         System.out.println("student = " + student);
     }
 
     @Test
-    public void getStudentByFirstNameNativeQueryTest(){
+    public void getStudentByFirstNameNativeQuery(){
         Student student = studentRepository.getStudentByFirstNameNativeQuery("Nandha");
         assertEquals("Nandha", student.getFirstName());
         System.out.println("student = " + student);
     }
 
     @Test
-    public void getStudentLastNameByEmailNativeQueryTest(){
+    public void getStudentLastNameByEmailNativeQuery(){
         String student = studentRepository.getStudentLastNameByEmailNative("nandha@mail.com");
         assertEquals("Kumar", student);
         System.out.println("student = " + student);
-    }
-
-    @Test
-    public void getStudentLastNameByEmailNativeNamedParamTest(){
-        String student = studentRepository.getStudentLastNameByEmailNativeNamedParam("nandha@mail.com");
-        assertEquals("Kumar", student);
-        System.out.println("student = " + student);
-    }
-
-    @Test
-    public void updateStudentFirstNameByEmailTest(){
-        studentRepository.updateStudentFirstNameByEmail("Aandamuthu Nandha","nandha@mail.com");
     }
 }
