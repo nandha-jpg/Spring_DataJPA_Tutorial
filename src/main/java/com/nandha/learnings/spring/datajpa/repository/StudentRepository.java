@@ -2,10 +2,12 @@ package com.nandha.learnings.spring.datajpa.repository;
 
 import com.nandha.learnings.spring.datajpa.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -35,5 +37,11 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     @Query(value = "select s.last_name from student_tbl s where s.email = :email",
             nativeQuery = true)
     String getStudentLastNameByEmailNativeNamedParam(@Param("email") String email);
+
+    @Transactional //usually this annotation should be placed in service layer only, but for JPA's sake we are using it here
+    @Modifying
+    @Query(value = "update student_tbl s set s.first_name= ?1 where email = ?2",
+            nativeQuery = true)
+    void updateStudentFirstNameByEmail(String first_name,String email);
 
 }
