@@ -94,4 +94,19 @@ class StudentRepositoryTest {
         assertEquals("Nandha", student.getFirstName());
         System.out.println("student = " + student);
     }
+
+
+    @Test
+    public void getStudentLastNameByGuardian(){
+        String student = studentRepository.getStudentLastNameByEmail("siva.s@mail.com");
+        assertEquals("Kumar", student);
+        System.out.println("student = " + student);
+    }
+
+    @Test
+    public void getStudentByFirstNameNativeQuery(){
+        Student student = studentRepository.getStudentByFirstNameNativeQuery("Nandha");
+        assertEquals("Nandha", student.getFirstName());
+        System.out.println("student = " + student);
+    }
 }
