@@ -25,5 +25,6 @@ public class CourseMaterial {
 
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id", referencedColumnName = "course_id")
+    @ToString.Exclude
     private Course course;
 }
