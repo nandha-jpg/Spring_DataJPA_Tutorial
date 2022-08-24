@@ -116,4 +116,11 @@ class StudentRepositoryTest {
         assertEquals("Kumar", student);
         System.out.println("student = " + student);
     }
+
+    @Test
+    public void getStudentLastNameByEmailNativeNamedParam(){
+        String student = studentRepository.getStudentLastNameByEmailNativeNamedParam("nandha@mail.com");
+        assertEquals("Kumar", student);
+        System.out.println("student = " + student);
+    }
 }
