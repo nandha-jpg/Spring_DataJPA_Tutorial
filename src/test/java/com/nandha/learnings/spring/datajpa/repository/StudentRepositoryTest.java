@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 //@DataJpaTest /*This will help you to test the repository layer and once the operation is done, it will flush the data.
@@ -26,7 +28,13 @@ class StudentRepositoryTest {
                 .guardianMobile("9494949494")
                 .guardianEmail("muthusamy@mail.com")
                 .build();
-
         studentRepository.save(student);
+    }
+
+    @Test
+    public void getAllStudents() {
+        List<Student> students = studentRepository.findAll();
+        System.out.println("students = " + students);
+        assertTrue(students.size() > 0);
     }
 }
