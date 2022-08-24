@@ -11,6 +11,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+
+//@Table(name = "CourseMaterials")
 public class CourseMaterial {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "course_material_sequence")
@@ -20,4 +22,8 @@ public class CourseMaterial {
 
     @Column(name = "course_material_url")
     private String url;
+
+    @OneToOne
+    @JoinColumn(name = "course_id", referencedColumnName = "course_id")
+    private Course course;
 }

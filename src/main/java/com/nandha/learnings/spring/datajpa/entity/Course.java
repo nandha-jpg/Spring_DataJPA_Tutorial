@@ -11,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "Course", uniqueConstraints = @UniqueConstraint(name = "uc_course_course_title", columnNames = {"course_title"}))
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "course_sequence")
@@ -23,6 +24,5 @@ public class Course {
 
     @Column(name = "course_credits")
     private Integer credits;
-
 
 }
