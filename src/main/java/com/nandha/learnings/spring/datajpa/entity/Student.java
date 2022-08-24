@@ -31,10 +31,15 @@ public class Student {
     @Column(name = "last_name")
     private String lastName;
 
+    @Column(name = "email",
+            nullable = false,
+            unique = true)
+    private String emailAddress;
+
     @Column(name = "guardian_name")
     private String guardianName;
 
-    @Column(name = "email",
+    @Column(name = "guardian_email",
             nullable = false,
             unique = true)
     private String guardianEmail;
