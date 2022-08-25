@@ -21,23 +21,27 @@ class TeacherRepositoryTest {
     @Test
     public void saveTeacher(){
         CourseMaterial courseMaterialJava = CourseMaterial.builder()
-                .url("www.java.com").build();
+                .url("www.java.com")
+                .build();
 
-        CourseMaterial courseMaterialPHP = CourseMaterial.builder()
-                .url("www.php.com").build();
+        CourseMaterial courseMaterialCSH = CourseMaterial.builder()
+                .url("www.c#.com")
+                .build();
 
         Course course1 = Course.builder()
-                .title(".Net")
-                .credits(3).build();
+                .title("Java")
+                .courseMaterial(courseMaterialJava)
+                .credits(5)
+                .build();
 
         Course course = new Course();
-        course.setTitle("php");
+        course.setTitle("c#");
         course.setCredits(4);
-        //course.setCourseMaterial(courseMaterialPHP);
+        course.setCourseMaterial(courseMaterialCSH);
 
         Teacher teacher = Teacher.builder()
-                .firstName("Murugan")
-                .lastName("Swamyvel")
+                .firstName("Samraj")
+                .lastName("Thangavel")
                 .courses(Arrays.asList(course,course1)).build();
 
         teacherRepository.save(teacher);

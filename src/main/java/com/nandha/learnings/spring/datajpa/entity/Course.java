@@ -26,6 +26,7 @@ public class Course {
     private Integer credits;
 
 
-    @OneToOne(mappedBy = "course")
+    @ToString.Exclude
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "course", cascade = CascadeType.ALL, optional = false)
     private CourseMaterial courseMaterial;
 }
