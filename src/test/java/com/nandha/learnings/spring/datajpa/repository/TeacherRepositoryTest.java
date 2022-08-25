@@ -42,7 +42,8 @@ class TeacherRepositoryTest {
         Teacher teacher = Teacher.builder()
                 .firstName("Samraj")
                 .lastName("Thangavel")
-                .courses(Arrays.asList(course,course1)).build();
+                //.courses(Arrays.asList(course,course1)) //commented out for making Many to One mapping instead of One to Many
+                .build();
 
         teacherRepository.save(teacher);
     }

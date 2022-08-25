@@ -22,8 +22,8 @@ public class Teacher {
     private String firstName;
     private String lastName;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    /*@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id")
     @ToString.Exclude
-    private List<Course> courses;
+    private List<Course> courses;*/ //commenting out just to make Many to One mapping
 }

@@ -29,4 +29,9 @@ public class Course {
     @ToString.Exclude
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "course", cascade = CascadeType.ALL, optional = false)
     private CourseMaterial courseMaterial;
+
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id")
+    private Teacher teacher;
 }
