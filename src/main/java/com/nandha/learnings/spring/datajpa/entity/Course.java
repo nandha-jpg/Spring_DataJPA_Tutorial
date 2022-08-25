@@ -25,4 +25,7 @@ public class Course {
     @Column(name = "course_credits")
     private Integer credits;
 
+
+    @OneToOne(mappedBy = "course")
+    private CourseMaterial courseMaterial;
 }
